@@ -1,8 +1,8 @@
-import { customElement, property, LitElement, html, css } from 'lit-element';
-
+import {  LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 @customElement('app-root')
 export class AppRoot extends LitElement {
-  @property() message = 'Learn LitElement';
+  @property() message = 'Learns Lit';
 
   static get styles() {
     return css`
@@ -28,11 +28,11 @@ export class AppRoot extends LitElement {
   render() {
     return html`
       <div class="wrapper">
-        <h1>LitElement + Snowpack</h1>
+        <h1>Lit + Snowpack = 🔥</h1>
         <p>Edit <code>src/app-root.ts</code> and save to reload.</p>
         <a
           class="link"
-          href="https://lit-element.polymer-project.org/"
+          href="https://lit.dev/"
           target="_blank"
           rel="noopener noreferrer"
         >
