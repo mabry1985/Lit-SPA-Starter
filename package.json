@@ -13,11 +13,6 @@
     "pre:commit": "yarn run test && yarn run lint",
     "prepare": "husky install"
   },
-  "eslintConfig": {
-    "extends": [
-      "@open-wc/eslint-config"
-    ]
-  },
   "prettier": {
     "singleQuote": true,
     "arrowParens": "avoid"
@@ -50,10 +45,14 @@
     "@snowpack/plugin-typescript": "^1.2.1",
     "@types/snowpack-env": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
     "@web/test-runner": "^0.13.8",
+    "babel-eslint": "^10.1.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-import-resolver-typescript": "^2.4.0",
+    "eslint-plugin-import": "^2.23.4",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.1",
