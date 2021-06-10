@@ -3,8 +3,29 @@
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "echo \"This template does not include a test runner by default.\" && exit 1",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "prettier --check \"src/**/*.ts\""
+    "lint": "npm run lint:eslint && npm run lint:prettier",
+    "format": "npm run format:eslint && npm run format:prettier",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "lint:prettier": "prettier \"**/*.js\" --check --ignore-path .gitignore",
+    "format:prettier": "prettier \"**/*.js\" --write --ignore-path .gitignore"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true,
+    "arrowParens": "avoid"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["eslint --fix", "prettier --write", "git add"]
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
@@ -15,14 +36,18 @@
     "@babel/plugin-proposal-decorators": "^7.13.15",
     "@babel/preset-typescript": "^7.13.0",
     "@canarise/snowpack-eslint-plugin": "^0.2.0",
+    "@open-wc/eslint-config": "^4.3.0",
     "@snowpack/plugin-babel": "^2.1.7",
     "@snowpack/plugin-dotenv": "^2.1.0",
     "@snowpack/plugin-typescript": "^1.2.1",
     "@types/snowpack-env": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
-    "eslint": "^5.16.0",
+    "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
-    "prettier": "^2.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
     "snowpack": "^3.3.7",
     "typescript": "^4.2.4"
   }
