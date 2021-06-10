@@ -1,5 +1,5 @@
 import {  LitElement, html, css } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, query } from 'lit/decorators.js';
 import { attachRouter, urlForName } from './router/index.js';
 
 @customElement('app-root')
