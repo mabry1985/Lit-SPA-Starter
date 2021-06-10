@@ -7,8 +7,6 @@ export class AppRoot extends LitElement {
   @query('main')
   private main!: HTMLElement;
 
-  @property() message = 'Learns Lit';
-
   static styles = css`
     :host {
       display: flex;
