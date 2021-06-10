@@ -1,44 +1,77 @@
 import {  LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
+import { attachRouter, urlForName } from './router/index.js';
+
 @customElement('app-root')
 export class AppRoot extends LitElement {
+  @query('main')
+  private main!: HTMLElement;
+
   @property() message = 'Learns Lit';
 
-  static get styles() {
-    return css`
-      h1 {
-        font-size: 4rem;
-      }
-      .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        height: 100vh;
-        background-color: #2196f3;
-        background: linear-gradient(315deg, #b4d2ea 0%, #2196f3 100%);
-        font-size: 24px;
-      }
-      .link {
-        color: white;
-      }
-    `;
-  }
+  static styles = css`
+    :host {
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      height: 53px;
+      padding: 0 1rem;
+      background-color: #24292e;
+    }
+    header nav {
+      display: flex;
+      flex: 1;
+      align-self: stretch;
+    }
+    header nav a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    header nav a:not(:last-child) {
+      margin-right: 1rem;
+    }
+    header nav a:hover {
+      color: #bbb;
+    }
+    main,
+    main > * {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+    footer {
+      padding: 1rem;
+      text-align: center;
+      background-color: #eee;
+    }
+    main:empty ~ footer {
+      display: none;
+    }
+  `;
 
   render() {
     return html`
-      <div class="wrapper">
-        <h1>Lit + Snowpack = 🔥</h1>
-        <p>Edit <code>src/app-root.ts</code> and save to reload.</p>
-        <a
-          class="link"
-          href="https://lit.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          ${this.message}
-        </a>
-      </div>
+      <header>
+        <nav>
+          <a href="${urlForName('home')}">Home</a>
+          <a href="${urlForName('about')}">About</a>
+        </nav>
+      </header>
+      <!-- The main content is added / removed dynamically by the router -->
+      <main role="main"></main>
+      <footer>
+        <span>Footer</span>
+      </footer>
     `;
+  }
+
+  firstUpdated() {
+    attachRouter(this.main);
   }
 }
