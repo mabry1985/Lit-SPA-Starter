@@ -1,4 +1,5 @@
 .snowpack
 .DS_Store
-build*
+build
 node_modules
+yarn-error.log
