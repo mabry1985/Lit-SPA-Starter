@@ -1,3 +1,4 @@
 .snowpack
-build
+.DS_Store
+build*
 node_modules
