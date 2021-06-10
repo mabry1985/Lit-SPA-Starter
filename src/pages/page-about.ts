@@ -1,7 +1,5 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-
-
 @customElement('page-about')
 export class PageAbout extends LitElement {
   static styles = css`
