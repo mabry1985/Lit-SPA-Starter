@@ -62,6 +62,7 @@ export class AppRoot extends LitElement {
           <a href="${urlForName('about')}">About</a>
         </nav>
       </header>
+      <p>test</p>
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
       <footer>
