@@ -61,6 +61,7 @@ class AppRoot extends LitElement {
         <nav>
           <a href="${urlForName('home')}">Home</a>
           <a href="${urlForName('about')}">About</a>
+          <a href="${urlForName('blog-list')}">Blog</a>
         </nav>
       </header>
 
