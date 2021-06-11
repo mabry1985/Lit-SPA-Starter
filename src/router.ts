@@ -1,8 +1,6 @@
 import { Router } from '@vaadin/router';
 import type { Params, Route } from '@vaadin/router';
 
-const router = new Router();
-
 export const routes: Route[] = [
   {
     path: '/',
@@ -21,6 +19,25 @@ export const routes: Route[] = [
     },
   },
   {
+    path: '/blog',
+    name: 'blog-list',
+    component: 'page-blog-list',
+    /* eslint-disable */
+    action: async () => {
+      await import('./pages/page-blog-list.js');
+    },
+    /* eslint-enable */
+  },
+  {
+    path: '/blog/:id',
+    component: 'page-blog',
+    /* eslint-disable */
+    action: async () => {
+      await import('./pages/page-blog.js');
+    },
+    /* eslint-enable */
+  },
+  {
     path: '(.*)',
     name: 'not-found',
     component: 'page-not-found',
@@ -32,6 +49,7 @@ export const routes: Route[] = [
   },
 ];
 
+export const router = new Router();
 router.setRoutes([...routes]);
 
 export const attachRouter = (outlet: HTMLElement) => router.setOutlet(outlet);
