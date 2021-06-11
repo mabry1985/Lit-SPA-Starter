@@ -2,7 +2,7 @@
   "license": "MIT",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
+    "build": "snowpack build && cp ./_redirects ./build",
     "test": "web-test-runner \"test/**/*.test.js\" --playwright --browsers chromium firefox webkit --node-resolve",
     "test:coverage": "web-test-runner \"test/**/*.test.js\" --node-resolve --coverage",
     "test:watch": "web-test-runner \"test/**/*.test.js\" --node-resolve --watch",
