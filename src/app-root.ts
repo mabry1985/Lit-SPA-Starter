@@ -1,10 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, query } from 'lit/decorators.js';
-import { attachRouter, urlForName } from './router/index.js';
+import { attachRouter, urlForName } from './router.js';
 
 @customElement('app-root')
-export class AppRoot extends LitElement {
+class AppRoot extends LitElement {
   @query('main')
+  // eslint-disable-line
   private main!: HTMLElement;
 
   static styles = css`
@@ -76,3 +77,5 @@ export class AppRoot extends LitElement {
     attachRouter(this.main);
   }
 }
+
+export default AppRoot;

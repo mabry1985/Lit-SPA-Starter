@@ -1,8 +1,9 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { urlForName } from '../router/index.js';
+import { urlForName } from '../router.js';
+
 @customElement('page-not-found')
-export class PageNotFound extends LitElement {
+class PageNotFound extends LitElement {
   static styles = css`
     :host {
       display: block;
@@ -26,3 +27,5 @@ export class PageNotFound extends LitElement {
     `;
   }
 }
+
+export default PageNotFound;

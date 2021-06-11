@@ -1,5 +1,5 @@
 import { expect } from '@esm-bundle/chai';
-import { sum } from '../src/sum.js';
+import { sum } from '../src/sum';
 
 it('sums up 2 numbers', () => {
   expect(sum(1, 1)).to.equal(2);
