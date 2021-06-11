@@ -1,7 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
+
 @customElement('page-home')
-export class PageHome extends LitElement {
+class PageHome extends LitElement {
   static styles = css`
     section {
       padding: 1rem;
@@ -32,3 +33,5 @@ export class PageHome extends LitElement {
     `;
   }
 }
+
+export default PageHome;

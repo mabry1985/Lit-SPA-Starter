@@ -5,6 +5,7 @@ export default {
     src: { url: '/dist' },
   },
   plugins: [
+    'tailwind-to-lit',
     '@snowpack/plugin-babel',
     '@snowpack/plugin-dotenv',
     [
