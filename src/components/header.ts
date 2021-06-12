@@ -9,35 +9,34 @@ export class Header extends LitElement {
       :host {
         display: block;
       }
-
       header {
         display: flex;
-        align-items: center;
-        height: 53px;
+        /* align-items: center; */
+        height: 80px;
         padding: 0 1rem;
-        background-color: #24292e;
+        background-color: var(--primary-color);
       }
-
       header nav {
         display: flex;
         flex: 1;
-        align-self: stretch;
+        /* align-self: stretch; */
       }
-
       header nav a {
         display: flex;
         align-items: center;
         color: #fff;
         font-weight: 600;
+        font-size: 20px;
         text-decoration: none;
       }
-
       header nav a:not(:last-child) {
         margin-right: 1rem;
       }
-
       header nav a:hover {
-        color: #bbb;
+        color: var(--tertiary-color);
+      }
+      h2 {
+        align-self: center;
       }
     `,
   ];
