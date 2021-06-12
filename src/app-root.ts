@@ -41,7 +41,7 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
-      <app-header .heroImage=${true}></app-header>
+      <app-header .heroImage=${true} .sticky=${true}></app-header>
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
 

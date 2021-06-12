@@ -67,11 +67,15 @@ export class Header extends LitElement {
   }
 
   firstUpdated() {
-    window.addEventListener('scroll', this.handleScroll);
+    if (this.sticky) {
+      window.addEventListener('scroll', this.handleScroll);
+    }
   }
 
   disconnectedCallback() {
-    window.removeEventListener('scroll', this.handleScroll);
+    if (this.sticky) {
+      window.removeEventListener('scroll', this.handleScroll);
+    }
     super.disconnectedCallback!();
   }
 
