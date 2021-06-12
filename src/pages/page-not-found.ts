@@ -1,6 +1,7 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { urlForName } from '../router.js';
+import '../components/page-title';
 
 @customElement('page-not-found')
 export class PageNotFound extends LitElement {
@@ -17,8 +18,7 @@ export class PageNotFound extends LitElement {
   render() {
     return html`
       <section>
-        <h1>Page not found, Fool!</h1>
-
+        <page-title>Page not found, Fool!</page-title>
         <p>
           <a href="${urlForName('home')}">Back to home</a>
         </p>

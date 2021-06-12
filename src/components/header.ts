@@ -1,21 +1,29 @@
 import { LitElement, html, css } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
+
 import { urlForName } from '../router';
+import './hero-image';
 
 @customElement('app-header')
 export class Header extends LitElement {
+  @property()
+  sticky: boolean = false;
+
+  @property()
+  heroImage: boolean = false;
+
   static styles = [
     css`
       :host {
         display: block;
-      }
-      header {
-        display: flex;
-        /* align-items: center; */
-        height: 80px;
-        padding: 0 1rem;
         background-color: var(--primary-color);
       }
+      .sticky {
+        width: 100vw;
+        top: 0;
+      }
+
       header nav {
         display: flex;
         flex: 1;
@@ -33,7 +41,7 @@ export class Header extends LitElement {
         margin-right: 1rem;
       }
       header nav a:hover {
-        color: var(--tertiary-color);
+        color: var(--accent-color);
       }
       h2 {
         align-self: center;
@@ -41,15 +49,29 @@ export class Header extends LitElement {
     `,
   ];
 
+  heroImageTemplate() {
+    return this.heroImage ? html` <hero-image></hero-image> ` : null;
+  }
+
   render() {
-    return html`
-      <header>
-        <nav>
-          <a href="${urlForName('home')}">Home</a>
-          <a href="${urlForName('about')}">About</a>
-          <a href="${urlForName('blog-list')}">Blog</a>
-        </nav>
-      </header>
-    `;
+    const headerStyles = {
+      position: this.sticky ? 'fixed' : 'inherit',
+      top: '0',
+      display: 'flex',
+      height: '80px',
+      padding: '0 1rem',
+    };
+    return [
+      this.heroImageTemplate(),
+      html`
+        <header style=${styleMap(headerStyles)}>
+          <nav>
+            <a href="${urlForName('home')}">Home</a>
+            <a href="${urlForName('about')}">About</a>
+            <a href="${urlForName('blog-list')}">Blog</a>
+          </nav>
+        </header>
+      `,
+    ];
   }
 }

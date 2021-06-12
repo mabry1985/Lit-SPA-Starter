@@ -3,7 +3,10 @@ import { customElement, property, state } from 'lit/decorators.js';
 
 import { blogs } from '../data/blogs-data';
 import { router, urlForName } from '../router';
+
 import type { Blog } from './page-blog-list';
+
+import '../components/page-title';
 
 @customElement('page-blog')
 export class PageBlog extends LitElement {
@@ -20,13 +23,10 @@ export class PageBlog extends LitElement {
       section {
         display: flex;
         flex-direction: column;
-        padding: 1rem;
-      }
-      h1 {
-        margin-bottom: 0.25rem;
+        align-items: center;
       }
       .content {
-        width: 70vw;
+        width: 90vw;
       }
     `,
   ];
@@ -42,14 +42,13 @@ export class PageBlog extends LitElement {
     return !this.blog
       ? html`
           <section>
-            <h1>This Blog Doesn't Exist</h1>
+            <page-title>This Blog Doesn't Exist</page-title>
             <a href=${urlForName('blog-list')}>Return to blog list</a>
           </section>
         `
       : html`
           <article>
-            <h1>${this.blog.title}</h1>
-            <p class="author">by ${this.blog.author}</p>
+            <page-title>${this.blog.title}</page-title>
             <p class="content">${this.blog.body}</p>
             <a href=${urlForName('blog-list')}>Return to blog list</a>
           </article>

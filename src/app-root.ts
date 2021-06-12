@@ -15,6 +15,8 @@ export class AppRoot extends LitElement {
       display: flex;
       flex-direction: column;
       height: 100vh;
+      min-height: 200vh;
+      overflow-x: hidden;
     }
     main,
     main > * {
@@ -22,6 +24,7 @@ export class AppRoot extends LitElement {
       display: flex;
       flex: 1;
       flex-direction: column;
+      padding: 1rem;
     }
     footer {
       background-color: var(--primary-color);
@@ -37,8 +40,7 @@ export class AppRoot extends LitElement {
 
   render() {
     return html`
-      <hero-image></hero-image>
-      <app-header></app-header>
+      <app-header .heroImage=${true}></app-header>
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
 

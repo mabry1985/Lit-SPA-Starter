@@ -2,6 +2,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, state, property } from 'lit/decorators.js';
 import { blogs } from '../data/blogs-data';
 import { router } from '../router';
+import '../components/page-title';
 
 export interface Blog {
   author: string;
@@ -21,8 +22,10 @@ export class PageBlogList extends LitElement {
       :host {
         display: block;
       }
-      section {
-        padding: 1rem;
+      .blog-list {
+        text-align: center;
+        list-style: none;
+        padding-left: 0;
       }
     `,
   ];
@@ -31,7 +34,7 @@ export class PageBlogList extends LitElement {
   render() {
     return html`
       <section>
-        <h1>Blog Posts</h1>
+        <page-title>Blog Posts</page-title>
         <ul class="blog-list">
           ${this.blogPosts.map(
             (blog: Blog) =>
