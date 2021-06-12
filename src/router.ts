@@ -22,30 +22,25 @@ export const routes: Route[] = [
     path: '/blog',
     name: 'blog-list',
     component: 'page-blog-list',
-    /* eslint-disable */
     action: async () => {
       await import('./pages/page-blog-list.js');
     },
-    /* eslint-enable */
   },
   {
-    path: '/blog/:id',
+    path: '/blog/:slug',
     component: 'page-blog',
-    /* eslint-disable */
     action: async () => {
       await import('./pages/page-blog.js');
     },
-    /* eslint-enable */
   },
   {
+    // this route must be last
     path: '(.*)',
     name: 'not-found',
     component: 'page-not-found',
-    /* eslint-disable */
     action: async () => {
       await import('./pages/page-not-found.js');
     },
-    /* eslint-enable */
   },
 ];
 

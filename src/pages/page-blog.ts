@@ -1,12 +1,15 @@
 import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 
 import { blogs } from '../data/blogs-data';
 import { router, urlForName } from '../router';
+import type { Blog } from './page-blog-list';
 
 @customElement('page-blog')
 export class PageBlog extends LitElement {
   @property() location = router.location;
+
+  @state() blog!: Blog;
 
   static styles = [
     css`
@@ -28,10 +31,15 @@ export class PageBlog extends LitElement {
     `,
   ];
 
+  connectedCallback() {
+    super.connectedCallback()!;
+    const slugParam = this.location.params.slug as string;
+    [this.blog] = blogs.filter((blog: Blog) => blog.slug === slugParam);
+    this.requestUpdate();
+  }
+
   render() {
-    const { id } = this.location.params;
-    const blog = blogs[parseInt(id as string, 10) - 1];
-    return !blog
+    return !this.blog
       ? html`
           <section>
             <h1>This Blog Doesn't Exist</h1>
@@ -40,9 +48,9 @@ export class PageBlog extends LitElement {
         `
       : html`
           <article>
-            <h1>${blog.title}</h1>
-            <p class="author">by ${blog.author}</p>
-            <p class="content">${blog.body}</p>
+            <h1>${this.blog.title}</h1>
+            <p class="author">by ${this.blog.author}</p>
+            <p class="content">${this.blog.body}</p>
             <a href=${urlForName('blog-list')}>Return to blog list</a>
           </article>
         `;

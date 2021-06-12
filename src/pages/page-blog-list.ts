@@ -7,6 +7,7 @@ export interface Blog {
   author: string;
   title: string;
   body: string;
+  slug: string;
 }
 
 @customElement('page-blog-list')
@@ -33,10 +34,10 @@ export class PageBlogList extends LitElement {
         <h1>Blog Posts</h1>
         <ul class="blog-list">
           ${this.blogPosts.map(
-            (blog, index) =>
+            (blog: Blog) =>
               html`
                 <li>
-                  <a href="blog/${index + 1}"> ${blog.title} </a>
+                  <a href="blog/${blog.slug}"> ${blog.title} </a>
                 </li>
               `
           )}
