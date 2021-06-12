@@ -21,6 +21,16 @@ export default {
         /* Yarn PnP workaround: see https://www.npmjs.com/package/@snowpack/plugin-typescript */
         ...(process.versions.pnp ? { tsc: 'yarn pnpify tsc' } : {}),
       },
+      'snowpack-plugin-minify-html',
+      {
+        /**
+         * @see Plugin Options below
+         */
+        htmlMinifierOptions: {
+          sortAttributes: true,
+          removeComments: true,
+        },
+      },
     ],
   ],
   routes: [
