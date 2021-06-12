@@ -31,7 +31,7 @@ class PageBlogList extends LitElement {
   render() {
     return html`
       <section>
-        <h1>Blog Posts:</h1>
+        <h1>Blog Posts</h1>
         <ul class="blog-list">
           ${this.blogPosts.map(
             (blog, index) =>

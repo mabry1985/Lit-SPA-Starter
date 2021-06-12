@@ -11,8 +11,7 @@ export class PageBlog extends LitElement {
   static styles = [
     css`
       :host {
-        display: flex;
-        align-items: center;
+        display: block;
       }
 
       article,
@@ -23,13 +22,8 @@ export class PageBlog extends LitElement {
       }
 
       h1 {
-        align-self: center;
+        margin-bottom: 0.25rem;
       }
-
-      .author {
-        align-self: center;
-      }
-
       .content {
         width: 70vw;
       }
@@ -51,8 +45,8 @@ export class PageBlog extends LitElement {
             <h1>${blog.title}</h1>
             <p class="author">by ${blog.author}</p>
             <p class="content">${blog.body}</p>
+            <a href=${urlForName('blog-list')}>Return to blog list</a>
           </article>
-          <a href=${urlForName('blog-list')}>Return to blog list</a>
         `;
   }
 }
