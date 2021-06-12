@@ -18,16 +18,17 @@ export class AppRoot extends LitElement {
     }
     main,
     main > * {
+      background-color: #f0f0f0;
       display: flex;
       flex: 1;
       flex-direction: column;
-      background-color: #f0f0f0;
     }
     footer {
-      padding: 1rem;
-      text-align: center;
       background-color: var(--primary-color);
       color: white;
+      font-weight: 200;
+      padding: 1rem;
+      text-align: end;
     }
     main:empty ~ footer {
       display: none;
@@ -42,7 +43,7 @@ export class AppRoot extends LitElement {
       <main role="main"></main>
 
       <footer>
-        <span>Footer</span>
+        <span>Built by Josh Mabry and Web Components</span>
       </footer>
     `;
   }
