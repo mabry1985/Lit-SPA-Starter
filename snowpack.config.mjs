@@ -35,7 +35,7 @@ export default {
     splitting: true,
   },
   packageOptions: {
-    /* ... */
+    knownEntryOptions: ['@lit/reactive-element/decorators/base.js'],
   },
   devOptions: {
     /* ... */
