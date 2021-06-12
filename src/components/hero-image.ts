@@ -25,5 +25,13 @@ export class HeroImage extends LitElement {
     `,
   ];
 
-  render = () => html` <div class="hero-image"></div> `;
+  render() {
+    return html`
+      <div
+        role="img"
+        aria-label="sunset over the ocean"
+        class="hero-image"
+      ></div>
+    `;
+  }
 }

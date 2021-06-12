@@ -42,12 +42,14 @@ export class Header extends LitElement {
   ];
 
   render() {
-    return html` <header>
-      <nav>
-        <a href="${urlForName('home')}">Home</a>
-        <a href="${urlForName('about')}">About</a>
-        <a href="${urlForName('blog-list')}">Blog</a>
-      </nav>
-    </header>`;
+    return html`
+      <header>
+        <nav>
+          <a href="${urlForName('home')}">Home</a>
+          <a href="${urlForName('about')}">About</a>
+          <a href="${urlForName('blog-list')}">Blog</a>
+        </nav>
+      </header>
+    `;
   }
 }
