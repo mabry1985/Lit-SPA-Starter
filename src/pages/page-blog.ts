@@ -28,6 +28,9 @@ export class PageBlog extends LitElement {
       .content {
         width: 90vw;
       }
+      p {
+        color: var(--primary-color);
+      }
     `,
   ];
 

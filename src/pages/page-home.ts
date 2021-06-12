@@ -11,9 +11,11 @@ export class PageHome extends LitElement {
       flex-direction: column;
       align-items: center;
     }
-
     section * {
       width: 90vw;
+    }
+    p {
+      color: var(--primary-color);
     }
   `;
 

@@ -15,6 +15,10 @@ export class PageAbout extends LitElement {
     section * {
       width: 90vw;
     }
+
+    p {
+      color: var(--primary-color);
+    }
   `;
 
   render() {
