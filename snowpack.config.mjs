@@ -23,14 +23,20 @@ export default {
       },
       'snowpack-plugin-minify-html',
       {
-        /**
-         * @see Plugin Options below
-         */
         htmlMinifierOptions: {
           sortAttributes: true,
           removeComments: true,
         },
       },
+      // 'snowpack-plugin-imagemin',
+      // {
+      //   /* see "Plugin Options" below */
+      //   include: ['**/*.jpg', '**/*.png'],
+      //   plugins: [
+      //     require('imagemin-mozjpeg')({ quality: 90, progressive: true }),
+      //     require('imagemin-optipng')({ optimizationLevel: 7 }),
+      //   ],
+      // },
     ],
   ],
   routes: [
