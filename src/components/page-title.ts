@@ -11,6 +11,7 @@ export class PageTitle extends LitElement {
       h1 {
         font-size: 40px;
         text-align: center;
+        color: var(--primary-color);
       }
     `,
   ];
