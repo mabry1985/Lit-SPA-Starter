@@ -10,7 +10,7 @@ export interface Blog {
 }
 
 @customElement('page-blog-list')
-class PageBlogList extends LitElement {
+export class PageBlogList extends LitElement {
   @state() blogPosts: Blog[] = [...blogs];
 
   @property() location = router.location;
@@ -46,5 +46,3 @@ class PageBlogList extends LitElement {
     `;
   }
 }
-
-export default PageBlogList;

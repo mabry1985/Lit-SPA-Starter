@@ -2,7 +2,7 @@ import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 @customElement('page-about')
-class PageAbout extends LitElement {
+export class PageAbout extends LitElement {
   static styles = css`
     section {
       padding: 1rem;
@@ -24,5 +24,3 @@ class PageAbout extends LitElement {
     `;
   }
 }
-
-export default PageAbout;

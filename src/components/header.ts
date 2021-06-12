@@ -17,11 +17,13 @@ export class Header extends LitElement {
         padding: 0 1rem;
         background-color: #24292e;
       }
+
       header nav {
         display: flex;
         flex: 1;
         align-self: stretch;
       }
+
       header nav a {
         display: flex;
         align-items: center;
@@ -29,9 +31,11 @@ export class Header extends LitElement {
         font-weight: 600;
         text-decoration: none;
       }
+
       header nav a:not(:last-child) {
         margin-right: 1rem;
       }
+
       header nav a:hover {
         color: #bbb;
       }

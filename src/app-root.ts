@@ -4,7 +4,7 @@ import { attachRouter } from './router.js';
 import './components/header.js';
 
 @customElement('app-root')
-class AppRoot extends LitElement {
+export class AppRoot extends LitElement {
   @query('main')
   // eslint-disable-line
   private main!: HTMLElement;
@@ -48,5 +48,3 @@ class AppRoot extends LitElement {
     attachRouter(this.main);
   }
 }
-
-export default AppRoot;
