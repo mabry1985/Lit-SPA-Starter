@@ -33,13 +33,12 @@ export class Header extends LitElement {
         top: 0;
         display: flex;
         height: var(--header-height);
-        padding: 0 1rem;
       }
 
       header nav {
         display: flex;
         flex: 1;
-        padding: 1vh 5vw;
+        padding: 1vh 4.5vw;
         /* align-self: stretch; */
       }
       header nav a {
