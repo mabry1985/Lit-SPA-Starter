@@ -7,20 +7,18 @@ import './components/hero-image.js';
 @customElement('app-root')
 export class AppRoot extends LitElement {
   @query('main')
-  // eslint-disable-line
   private main!: HTMLElement;
 
   static styles = css`
     :host {
       display: flex;
       flex-direction: column;
-      height: 100vh;
       min-height: 200vh;
       overflow-x: hidden;
     }
     main,
     main > * {
-      background-color: #f0f0f0;
+      background-color: #dbdbdb;
       display: flex;
       flex: 1;
       flex-direction: column;
@@ -35,6 +33,9 @@ export class AppRoot extends LitElement {
     }
     main:empty ~ footer {
       display: none;
+    }
+    app-header[scrolled='true'] {
+      padding-top: var(--header-height);
     }
   `;
 

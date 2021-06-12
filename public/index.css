@@ -3,6 +3,8 @@
   --secondary-color: #abe0c8;
   --tertiary-color: #e0a89f;
   --accent-color: #ffd5cf;
+
+  --header-height: 6vh;
 }
 
 body {

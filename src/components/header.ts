@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { styleMap } from 'lit/directives/style-map.js';
+import { classMap } from 'lit/directives/class-map.js';
 
 import { urlForName } from '../router';
 import './hero-image';
@@ -13,20 +13,33 @@ export class Header extends LitElement {
   @property()
   heroImage: boolean = false;
 
+  @property({ reflect: true })
+  scrolled: boolean = false;
+
   static styles = [
     css`
       :host {
         display: block;
-        background-color: var(--primary-color);
       }
-      .sticky {
+      .scrolled {
+        position: fixed;
         width: 100vw;
         top: 0;
+        left: 0;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        top: 0;
+        display: flex;
+        height: var(--header-height);
+        padding: 0 1rem;
       }
 
       header nav {
         display: flex;
         flex: 1;
+        padding: 1vh 5vw;
         /* align-self: stretch; */
       }
       header nav a {
@@ -53,18 +66,21 @@ export class Header extends LitElement {
     return this.heroImage ? html` <hero-image></hero-image> ` : null;
   }
 
+  firstUpdated() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener('scroll', this.handleScroll);
+    super.disconnectedCallback!();
+  }
+
   render() {
-    const headerStyles = {
-      position: this.sticky ? 'fixed' : 'inherit',
-      top: '0',
-      display: 'flex',
-      height: '80px',
-      padding: '0 1rem',
-    };
+    const classes = { scrolled: this.scrolled };
     return [
       this.heroImageTemplate(),
       html`
-        <header style=${styleMap(headerStyles)}>
+        <header class=${classMap(classes)}>
           <nav>
             <a href="${urlForName('home')}">Home</a>
             <a href="${urlForName('about')}">About</a>
@@ -73,5 +89,19 @@ export class Header extends LitElement {
         </header>
       `,
     ];
+  }
+
+  private handleScroll = () => {
+    const offset = window.scrollY;
+    const vh = window.innerHeight;
+    if (offset > vh * 0.5) {
+      this.setScrolled(true);
+    } else {
+      this.setScrolled(false);
+    }
+  };
+
+  setScrolled(bool: boolean) {
+    this.scrolled = bool;
   }
 }
