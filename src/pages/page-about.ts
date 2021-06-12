@@ -13,7 +13,6 @@ export class PageAbout extends LitElement {
     return html`
       <section>
         <h1>About</h1>
-
         <p>
           Lorem ipsu m dolor sit amet, consectetur adipisicing elit. Eligendi,
           delectus? Unde, sit. Fuga modi ea praesentium. Nemo dicta qui, magnam

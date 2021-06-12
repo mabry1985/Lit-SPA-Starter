@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, state, property } from 'lit/decorators.js';
-import { blogs } from '../mock-data/blogs-data';
+import { blogs } from '../data/blogs-data';
 import { router } from '../router';
 
 export interface Blog {
@@ -20,7 +20,6 @@ export class PageBlogList extends LitElement {
       :host {
         display: block;
       }
-
       section {
         padding: 1rem;
       }

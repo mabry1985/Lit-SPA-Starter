@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 
-import { blogs } from '../mock-data/blogs-data';
+import { blogs } from '../data/blogs-data';
 import { router, urlForName } from '../router';
 
 @customElement('page-blog')
@@ -13,14 +13,12 @@ export class PageBlog extends LitElement {
       :host {
         display: block;
       }
-
       article,
       section {
         display: flex;
         flex-direction: column;
         padding: 1rem;
       }
-
       h1 {
         margin-bottom: 0.25rem;
       }

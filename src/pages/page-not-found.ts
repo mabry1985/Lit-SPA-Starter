@@ -8,7 +8,6 @@ export class PageNotFound extends LitElement {
     :host {
       display: block;
     }
-
     section {
       padding: 1rem;
       text-align: center;
