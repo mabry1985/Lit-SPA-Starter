@@ -9,9 +9,9 @@ export class PageTitle extends LitElement {
         display: block;
       }
       h1 {
-        font-size: 40px;
-        text-align: center;
         color: var(--primary-color);
+        font-size: var(--h1-font-size);
+        text-align: center;
       }
     `,
   ];

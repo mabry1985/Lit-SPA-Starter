@@ -1,40 +1,44 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
+import { styleMap } from 'lit/directives/style-map.js';
 
 import { urlForName } from '../router';
-import './hero-image';
 
 @customElement('app-header')
 export class Header extends LitElement {
   @property()
-  sticky: boolean = false;
+  bordered: boolean = false;
 
   @property()
   heroImage: boolean = false;
 
+  @property()
+  imgAlt: string = 'sunset over the ocean';
+
+  @property()
+  imgHeight: number = 100;
+
+  @property()
+  imgPath: string = '/dist/images/sunset.jpg';
+
   @property({ reflect: true })
   scrolled: boolean = false;
+
+  @property()
+  sticky: boolean = false;
 
   static styles = [
     css`
       :host {
         display: block;
       }
-      .scrolled {
-        position: fixed;
-        width: 100vw;
-        top: 0;
-        left: 0;
-      }
-
       header {
         background-color: var(--primary-color);
-        top: 0;
         display: flex;
         height: var(--header-height);
+        top: 0;
       }
-
       header nav {
         display: flex;
         flex: 1;
@@ -42,11 +46,11 @@ export class Header extends LitElement {
         /* align-self: stretch; */
       }
       header nav a {
-        display: flex;
         align-items: center;
+        display: flex;
         color: #fff;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 1.25rem;
         text-decoration: none;
       }
       header nav a:not(:last-child) {
@@ -58,11 +62,44 @@ export class Header extends LitElement {
       h2 {
         align-self: center;
       }
+      .scrolled {
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+      }
+      .bordered {
+        border-bottom: 5vh solid var(--primary-color);
+      }
     `,
   ];
 
   heroImageTemplate() {
-    return this.heroImage ? html` <hero-image></hero-image> ` : null;
+    const classes = {
+      bordered: this.bordered,
+    };
+    const styles = {
+      backgroundColor: 'var(--primary-color)',
+      backgroundImage: `linear-gradient(
+        rgba(0, 0, 0, 0.1),
+        rgba(0, 0, 0, 0.5)
+        ), url(${this.imgPath})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      height: `${this.imgHeight}vh`,
+      position: 'relative',
+      width: '100vw',
+    };
+
+    return html`
+      <div
+        role="img"
+        aria-label=${this.imgAlt}
+        class="${classMap(classes)}"
+        style=${styleMap(styles)}
+      ></div>
+    `;
   }
 
   firstUpdated() {
@@ -96,8 +133,8 @@ export class Header extends LitElement {
 
   private handleScroll = () => {
     const offset = window.scrollY;
-    const vh = window.innerHeight;
-    if (offset > vh * 0.5) {
+    const vh = window.innerHeight * (this.imgHeight * 0.01);
+    if (offset > vh) {
       this.setScrolled(true);
     } else {
       this.setScrolled(false);

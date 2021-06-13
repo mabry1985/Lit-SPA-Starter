@@ -1,10 +1,13 @@
 :root {
-  --primary-color: #485b5f;
+  --primary-color: #364649;
   --secondary-color: #abe0c8;
   --tertiary-color: #e0a89f;
   --accent-color: #ffd5cf;
 
   --header-height: 6vh;
+  --content-width: 90vw;
+
+  --h1-font-size: 6vh;
 }
 
 body {
