@@ -77,7 +77,7 @@ export class Header extends LitElement {
       .hero-caption {
         color: white;
         bottom: 4.5%;
-        font-size: 60px;
+        font-size: 100px;
         left: 4.5%;
         position: absolute;
         text-align: center;
