@@ -8,10 +8,16 @@ import { urlForName } from '../router';
 @customElement('app-header')
 export class Header extends LitElement {
   @property()
-  bordered: boolean = false;
+  heroImage: boolean = false;
 
   @property()
-  heroImage: boolean = false;
+  heroTitleBool: boolean = true;
+
+  @property()
+  heroTitle: string = "It's Lit";
+
+  @property()
+  heroTitleCentered: boolean = false;
 
   @property()
   imgAlt: string = 'sunset over the ocean';
@@ -68,17 +74,19 @@ export class Header extends LitElement {
         top: 0;
         width: 100vw;
       }
-      .bordered {
-        border-bottom: 5vh solid var(--primary-color);
+      .hero-caption {
+        color: white;
+        bottom: 4.5%;
+        font-size: 60px;
+        left: 4.5%;
+        position: absolute;
+        text-align: center;
       }
     `,
   ];
 
   heroImageTemplate() {
-    const classes = {
-      bordered: this.bordered,
-    };
-    const styles = {
+    const heroStyles = {
       backgroundColor: 'var(--primary-color)',
       backgroundImage: `linear-gradient(
         rgba(0, 0, 0, 0.1),
@@ -93,12 +101,9 @@ export class Header extends LitElement {
     };
 
     return html`
-      <div
-        role="img"
-        aria-label=${this.imgAlt}
-        class="${classMap(classes)}"
-        style=${styleMap(styles)}
-      ></div>
+      <div role="img" aria-label=${this.imgAlt} style=${styleMap(heroStyles)}>
+        <h1 class="hero-caption">It's Lit</h1>
+      </div>
     `;
   }
 
