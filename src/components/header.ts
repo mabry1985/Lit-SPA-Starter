@@ -11,13 +11,7 @@ export class Header extends LitElement {
   heroImage: boolean = false;
 
   @property()
-  heroTitleBool: boolean = true;
-
-  @property()
   heroTitle: string = "It's Lit";
-
-  @property()
-  heroTitleCentered: boolean = false;
 
   @property()
   imgAlt: string = 'sunset over the ocean';
@@ -65,7 +59,8 @@ export class Header extends LitElement {
       header nav a:hover {
         color: var(--accent-color);
       }
-      h2 {
+      h1 {
+        font-family: 'Paytone One', sans-serif;
         align-self: center;
       }
       .scrolled {
@@ -86,6 +81,7 @@ export class Header extends LitElement {
   ];
 
   heroImageTemplate() {
+    if (!this.heroImage) return null;
     const heroStyles = {
       backgroundColor: 'var(--primary-color)',
       backgroundImage: `linear-gradient(
@@ -127,9 +123,15 @@ export class Header extends LitElement {
       html`
         <header class=${classMap(classes)}>
           <nav>
-            <a href="${urlForName('home')}">Home</a>
-            <a href="${urlForName('about')}">About</a>
-            <a href="${urlForName('blog-list')}">Blog</a>
+            <a @click="${this.handleClick}" href="${urlForName('home')}"
+              >Home</a
+            >
+            <a @click="${this.handleClick}" href="${urlForName('about')}"
+              >About</a
+            >
+            <a @click="${this.handleClick}" href="${urlForName('blog-list')}"
+              >Blog</a
+            >
           </nav>
         </header>
       `,
@@ -141,9 +143,17 @@ export class Header extends LitElement {
     const vh = window.innerHeight * (this.imgHeight * 0.01);
     if (offset > vh) {
       this.setScrolled(true);
+      this.heroImage = false;
+      window.removeEventListener('scroll', this.handleScroll);
+      window.scrollTo({ top: 0 });
     } else {
       this.setScrolled(false);
     }
+  };
+
+  private handleClick = () => {
+    console.log('i clicked');
+    window.scrollTo(0, document.body.scrollHeight);
   };
 
   setScrolled(bool: boolean) {

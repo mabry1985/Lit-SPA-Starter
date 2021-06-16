@@ -26,7 +26,7 @@ export class PageBlog extends LitElement {
         align-items: center;
       }
       .content {
-        width: 90vw;
+        width: var(--content-width);
       }
       p {
         color: var(--primary-color);

@@ -13,7 +13,7 @@ export class PageAbout extends LitElement {
     }
 
     section * {
-      width: 90vw;
+      width: var(--content-width);
     }
 
     p {

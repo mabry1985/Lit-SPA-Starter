@@ -12,7 +12,7 @@ export class AppRoot extends LitElement {
     :host {
       display: flex;
       flex-direction: column;
-      min-height: 250vh;
+      min-height: 200vh;
       overflow-x: hidden;
     }
     main,
@@ -26,7 +26,7 @@ export class AppRoot extends LitElement {
     footer {
       background-color: var(--primary-color);
       color: white;
-      font-weight: 200;
+      font-weight: 300;
       padding: 1rem;
       text-align: end;
     }
@@ -35,15 +35,16 @@ export class AppRoot extends LitElement {
     }
     app-header[scrolled='true'] {
       padding-top: var(--header-height);
+      /* height: 100vh; */
     }
   `;
 
   render() {
     return html`
       <app-header
-        .heroImage=${true}
         .sticky=${true}
         .imgHeight=${100}
+        .heroImage=${true}
       ></app-header>
       <!-- The main content is added / removed dynamically by the router -->
       <main role="main"></main>
