@@ -1,4 +1,8 @@
-build
 postcss.config.js
 public/dist/styles.js
 public/styles.js
+.snowpack
+.DS_Store
+build
+node_modules
+yarn-error.log
