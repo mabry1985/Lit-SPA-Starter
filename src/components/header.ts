@@ -1,9 +1,10 @@
-import { LitElement, html, css } from 'lit';
+import { LitElement, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { styleMap } from 'lit/directives/style-map.js';
 
 import { urlForName } from '../router';
+import { tailwindStyles } from '../styles';
 
 @customElement('app-header')
 export class Header extends LitElement {
@@ -28,57 +29,59 @@ export class Header extends LitElement {
   @property()
   sticky: boolean = false;
 
-  static styles = [
-    css`
-      :host {
-        display: block;
-      }
-      header {
-        background-color: var(--primary-color);
-        display: flex;
-        height: var(--header-height);
-        top: 0;
-      }
-      header nav {
-        display: flex;
-        flex: 1;
-        padding: 1vh 4.5vw;
-        /* align-self: stretch; */
-      }
-      header nav a {
-        align-items: center;
-        display: flex;
-        color: #fff;
-        font-weight: 600;
-        font-size: 1.25rem;
-        text-decoration: none;
-      }
-      header nav a:not(:last-child) {
-        margin-right: 1rem;
-      }
-      header nav a:hover {
-        color: var(--accent-color);
-      }
-      h1 {
-        font-family: 'Paytone One', sans-serif;
-        align-self: center;
-      }
-      .scrolled {
-        left: 0;
-        position: fixed;
-        top: 0;
-        width: 100vw;
-      }
-      .hero-caption {
-        color: white;
-        bottom: 4.5%;
-        font-size: 100px;
-        left: 4.5%;
-        position: absolute;
-        text-align: center;
-      }
-    `,
-  ];
+  static styles = [tailwindStyles];
+
+  // static styles = [
+  //   css`
+  //     :host {
+  //       display: block;
+  //     }
+  //     header {
+  //       background-color: var(--primary-color);
+  //       display: flex;
+  //       height: var(--header-height);
+  //       top: 0;
+  //     }
+  //     header nav {
+  //       display: flex;
+  //       flex: 1;
+  //       padding: 1vh 4.5vw;
+  //       /* align-self: stretch; */
+  //     }
+  //     header nav a {
+  //       align-items: center;
+  //       display: flex;
+  //       color: #fff;
+  //       font-weight: 600;
+  //       font-size: 1.25rem;
+  //       text-decoration: none;
+  //     }
+  //     header nav a:not(:last-child) {
+  //       margin-right: 1rem;
+  //     }
+  //     header nav a:hover {
+  //       color: var(--accent-color);
+  //     }
+  //     h1 {
+  //       font-family: 'Paytone One', sans-serif;
+  //       align-self: center;
+  //     }
+  //     .scrolled {
+  //       left: 0;
+  //       position: fixed;
+  //       top: 0;
+  //       width: 100vw;
+  //     }
+  //     .hero-caption {
+  //       color: white;
+  //       bottom: 4.5%;
+  //       font-size: 100px;
+  //       left: 4.5%;
+  //       position: absolute;
+  //       text-align: center;
+  //     }
+  //   `,
+  // ];
 
   heroImageTemplate() {
     if (!this.heroImage) return null;
@@ -121,17 +124,11 @@ export class Header extends LitElement {
     return [
       this.heroImageTemplate(),
       html`
-        <header class=${classMap(classes)}>
-          <nav>
-            <a @click="${this.handleClick}" href="${urlForName('home')}"
-              >Home</a
-            >
-            <a @click="${this.handleClick}" href="${urlForName('about')}"
-              >About</a
-            >
-            <a @click="${this.handleClick}" href="${urlForName('blog-list')}"
-              >Blog</a
-            >
+        <header class="${classMap(classes)} h-20 bg-yellow-100">
+          <nav class="bg-yellow-300 text-xl py-10">
+            <a href="${urlForName('home')}">Home</a>
+            <a href="${urlForName('about')}">About</a>
+            <a href="${urlForName('blog-list')}">Blog</a>
           </nav>
         </header>
       `,
@@ -143,17 +140,12 @@ export class Header extends LitElement {
     const vh = window.innerHeight * (this.imgHeight * 0.01);
     if (offset > vh) {
       this.setScrolled(true);
-      this.heroImage = false;
-      window.removeEventListener('scroll', this.handleScroll);
-      window.scrollTo({ top: 0 });
+      // this.heroImage = false;
+      // window.removeEventListener('scroll', this.handleScroll);
+      // window.scrollTo({ top: 0 });
     } else {
       this.setScrolled(false);
     }
-  };
-
-  private handleClick = () => {
-    console.log('i clicked');
-    window.scrollTo(0, document.body.scrollHeight);
   };
 
   setScrolled(bool: boolean) {
