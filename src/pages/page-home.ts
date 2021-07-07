@@ -1,23 +1,25 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '../components/page-title';
+import { tailwindStyles } from '../styles';
 
 @customElement('page-home')
 export class PageHome extends LitElement {
-  static styles = css`
-    section {
-      display: flex;
-      flex-shrink: 1;
-      flex-direction: column;
-      align-items: center;
-    }
-    section * {
-      width: var(--content-width);
-    }
-    p {
-      color: var(--primary-color);
-    }
-  `;
+  static styles = [tailwindStyles];
+  // static styles = css`
+  //   section {
+  //     display: flex;
+  //     flex-shrink: 1;
+  //     flex-direction: column;
+  //     align-items: center;
+  //   }
+  //   section * {
+  //     width: var(--content-width);
+  //   }
+  //   p {
+  //     color: var(--primary-color);
+  //   }
+  // `;
 
   render() {
     return html`
