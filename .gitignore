@@ -1,5 +1,6 @@
 .snowpack
 .DS_Store
 build
+temp
 node_modules
 yarn-error.log
