@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../build/dist/router.js"],
+  "sourcesContent": ["import { Router } from '../_snowpack/pkg/@vaadin/router.js';\nexport const routes = [{\n  path: '/',\n  name: 'home',\n  component: 'page-home',\n  action: async () => {\n    await import(\"./pages/page-home.js\");\n  }\n}, {\n  path: '/about',\n  name: 'about',\n  component: 'page-about',\n  action: async () => {\n    await import(\"./pages/page-about.js\");\n  }\n}, {\n  path: '/blog',\n  name: 'blog-list',\n  component: 'page-blog-list',\n  action: async () => {\n    await import(\"./pages/page-blog-list.js\");\n  }\n}, {\n  path: '/blog/:slug',\n  component: 'page-blog',\n  action: async () => {\n    await import(\"./pages/page-blog.js\");\n  }\n}, {\n  // this route must be last\n  path: '(.*)',\n  name: 'not-found',\n  component: 'page-not-found',\n  action: async () => {\n    await import(\"./pages/page-not-found.js\");\n  }\n}];\nexport const router = new Router();\nrouter.setRoutes([...routes]);\nexport const attachRouter = outlet => router.setOutlet(outlet); // prettier-ignore\n\nexport const urlForName = (name, params) => router.urlForName(name, params);"],
+  "mappings": "wCAyCO,GAAM,GAAa,CAAC,EAAM,IAAW,EAAO,WAAW,EAAM",
+  "names": []
+}
