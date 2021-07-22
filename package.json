@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
-    "lit": "^2.0.0-rc.2"
+    "lit": "^2.0.0-rc.2",
+    "postcss-cli": "^8.3.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -64,7 +65,6 @@
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "postcss": "^8.3.4",
-    "postcss-cli": "^8.3.1",
     "postcss-discard-comments": "^5.0.1",
     "postcss-discard-empty": "^5.0.1",
     "postcss-syntax": "^0.36.2",
