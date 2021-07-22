@@ -35,7 +35,9 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
+    "autoprefixer": "^10.3.1",
     "lit": "^2.0.0-rc.2",
+    "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1"
   },
   "devDependencies": {
@@ -64,7 +66,6 @@
     "eslint-plugin-import": "^2.23.4",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "postcss": "^8.3.4",
     "postcss-discard-comments": "^5.0.1",
     "postcss-discard-empty": "^5.0.1",
     "postcss-syntax": "^0.36.2",
