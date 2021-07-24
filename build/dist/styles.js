@@ -10,7 +10,8 @@ export const tailwindStyles = css`/*! tailwindcss v2.1.4 | MIT License | https:/
 
 html{
 	-moz-tab-size:4;
-	tab-size:4;
+	-o-tab-size:4;
+	   tab-size:4;
 }
 
 html{
@@ -32,7 +33,8 @@ hr{
 }
 
 abbr[title]{
-	text-decoration:underline dotted;
+	-webkit-text-decoration:underline dotted;
+	        text-decoration:underline dotted;
 }
 
 b,
@@ -212,6 +214,16 @@ img{
 
 textarea{
   resize:vertical;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder{
+  opacity:1;
+  color:#9ca3af;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder{
+  opacity:1;
+  color:#9ca3af;
 }
 
 input::placeholder,
