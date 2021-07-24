@@ -1,8 +1,8 @@
 {
   "license": "MIT",
   "scripts": {
-    "start": "snowpack dev",
-    "build": "snowpack build && TAILWIND_MODE=build postcss src/styles.ts -o build/dist/styles.js && cp ./_redirects ./build",
+    "start": "snowpack dev && yarn run css",
+    "build": "snowpack build && TAILWIND_MODE=build postcss src/styles.ts -o build/dist/styles.js && cp ./_redirects ./build && yarn run css",
     "css": "yarn postcss -r ./build/styles.js",
     "test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
     "test:playwright": "web-test-runner \"test/**/*.test.js\" --playwright --browsers chromium firefox webkit --node-resolve",
@@ -36,7 +36,6 @@
   "dependencies": {
     "@vaadin/router": "^1.7.4",
     "lit": "^2.0.0-rc.2",
-    "package.json": "^2.0.1",
     "postcss-cli": "^8.3.1"
   },
   "devDependencies": {
