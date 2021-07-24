@@ -2,7 +2,7 @@
   "license": "MIT",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && cp ./_redirects ./build && copy ./public/dist/styles.js ./build/dist",
+    "build": "snowpack build && cp ./_redirects ./build && cp ./public/dist/styles.js ./build/dist",
     "css": "yarn postcss -r ./build/dist/styles.js",
     "test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
     "test:playwright": "web-test-runner \"test/**/*.test.js\" --playwright --browsers chromium firefox webkit --node-resolve",
