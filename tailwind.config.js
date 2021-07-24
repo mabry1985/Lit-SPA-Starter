@@ -8,7 +8,6 @@ module.exports = {
       './src/pages/*.ts',
       './src/pages/**/*.ts',
       './src/app-root.ts',
-      './public/**/*.html',
     ],
   },
 };
