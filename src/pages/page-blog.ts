@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 
 import { blogs } from '../data/blogs-data';
@@ -7,34 +7,32 @@ import { router, urlForName } from '../router';
 import type { Blog } from './page-blog-list';
 
 import '../components/page-title';
-import { tailwindStyles } from '../styles';
 
 @customElement('page-blog')
 export class PageBlog extends LitElement {
   @property() location = router.location;
 
-  @state() blog!: Blog;
+  @state() blog: Blog | undefined;
 
-  static styles = [tailwindStyles];
-  // static styles = [
-  //   css`
-  //     :host {
-  //       display: block;
-  //     }
-  //     article,
-  //     section {
-  //       display: flex;
-  //       flex-direction: column;
-  //       align-items: center;
-  //     }
-  //     .content {
-  //       width: var(--content-width);
-  //     }
-  //     p {
-  //       color: var(--primary-color);
-  //     }
-  //   `,
-  // ];
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+      article,
+      section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .content {
+        width: var(--content-width);
+      }
+      p {
+        color: var(--primary-color);
+      }
+    `,
+  ];
 
   connectedCallback() {
     super.connectedCallback()!;

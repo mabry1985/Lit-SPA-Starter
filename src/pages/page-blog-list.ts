@@ -1,9 +1,8 @@
-import { LitElement, html } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, state, property } from 'lit/decorators.js';
 import { blogs } from '../data/blogs-data';
 import { router } from '../router';
 import '../components/page-title';
-import { tailwindStyles } from '../styles';
 
 export interface Blog {
   author: string;
@@ -13,26 +12,25 @@ export interface Blog {
 }
 @customElement('page-blog-list')
 export class PageBlogList extends LitElement {
-  @state() blogPosts: Blog[] = [...blogs];
+  @state()
+  blogPosts: Blog[] = [...blogs];
 
-  @property() location = router.location;
+  @property({ type: Object })
+  location = router.location;
 
-  static styles = [tailwindStyles];
+  static styles = [
+    css`
+      :host {
+        display: block;
+      }
+      .blog-list {
+        text-align: center;
+        list-style: none;
+        padding-left: 0;
+      }
+    `,
+  ];
 
-  // static styles = [
-  //   css`
-  //     :host {
-  //       display: block;
-  //     }
-  //     .blog-list {
-  //       text-align: center;
-  //       list-style: none;
-  //       padding-left: 0;
-  //     }
-  //   `,
-  // ];
-
-  /* eslint-disable */
   render() {
     return html`
       <section>

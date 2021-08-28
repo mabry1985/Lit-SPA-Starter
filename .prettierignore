@@ -1,4 +1,3 @@
-postcss.config.js
 public/dist/styles.js
 public/styles.js
 .snowpack
@@ -6,3 +5,4 @@ public/styles.js
 build
 node_modules
 yarn-error.log
+temp
