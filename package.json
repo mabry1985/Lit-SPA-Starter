@@ -2,8 +2,7 @@
   "license": "MIT",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build && cp ./_redirects ./build && cp ./public/dist/styles.js ./build/dist",
-    "css": "yarn postcss -r ./build/dist/styles.js",
+    "build": "snowpack build && cp ./_redirects ./build",
     "test": "web-test-runner \"test/**/*.test.js\" --node-resolve",
     "test:playwright": "web-test-runner \"test/**/*.test.js\" --playwright --browsers chromium firefox webkit --node-resolve",
     "test:coverage": "web-test-runner \"test/**/*.test.js\" --node-resolve --coverage",
@@ -35,8 +34,7 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.7.4",
-    "lit": "^2.0.0-rc.2",
-    "postcss-cli": "^8.3.1"
+    "lit": "^2.0.0-rc.2"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -47,16 +45,13 @@
     "@open-wc/eslint-config": "^4.3.0",
     "@snowpack/plugin-babel": "^2.1.7",
     "@snowpack/plugin-dotenv": "^2.1.0",
-    "@snowpack/plugin-postcss": "^1.4.1",
     "@snowpack/plugin-run-script": "^2.3.0",
     "@snowpack/plugin-typescript": "^1.2.1",
-    "@stylelint/postcss-css-in-js": "^0.37.2",
     "@types/snowpack-env": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^4.26.1",
     "@typescript-eslint/parser": "^4.26.1",
     "@web/test-runner": "^0.13.8",
     "@web/test-runner-playwright": "^0.8.6",
-    "autoprefixer": "^10.3.1",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
@@ -65,15 +60,10 @@
     "eslint-plugin-import": "^2.23.4",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "postcss": "^8.3.4",
-    "postcss-discard-comments": "^5.0.1",
-    "postcss-discard-empty": "^5.0.1",
-    "postcss-syntax": "^0.36.2",
     "prettier": "^2.3.1",
     "snowpack": "^3.3.7",
     "snowpack-plugin-imagemin": "^1.0.0",
     "snowpack-plugin-minify-html": "^0.1.1",
-    "tailwindcss": "^2.1.4",
     "typescript": "^4.2.4"
   }
 }

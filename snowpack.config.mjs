@@ -7,14 +7,7 @@ export default {
   plugins: [
     '@snowpack/plugin-babel',
     '@snowpack/plugin-dotenv',
-    '@snowpack/plugin-postcss',
     [
-      '@snowpack/plugin-run-script',
-      {
-        // cmd: 'postcss src/styles.ts -o build/dist/styles.js',
-        cmd: 'echo its lit',
-        watch: 'postcss src/styles.ts -o public/dist/styles.js -w',
-      },
       '@canarise/snowpack-eslint-plugin',
       {
         globs: ['src/**/*.ts'], // You should provide this

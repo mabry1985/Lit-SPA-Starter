@@ -13,7 +13,11 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": "error"
+    "import/no-unresolved": "error",
+    "object-curly-newline": "off",
+    "indent": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "warn"
   },
   "settings": {
     "import/resolver": {
